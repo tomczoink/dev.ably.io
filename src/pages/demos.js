@@ -15,15 +15,10 @@ const Title = styled.h1`
   background-color: ${Colors.charcoal};
   color: white;
 `
-const Container = styled.div`
-  max-width: ${Sizes.desktop};
-  margin: 0 auto;
-`
-
 const Demos = styled.ul`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  margin: 0 auto;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: -22px auto 0;
 `
 
 
@@ -38,11 +33,9 @@ const DemosPage = ({
       <Layout>
         <SEO title="Ably Demos" />
         <Title>Ably Demos and Resources</Title>
-        <Container>
           <Demos>
             {Posts}
           </Demos>
-          </Container>
       </Layout>
     )
 }
@@ -60,7 +53,7 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             slug
             title
-            featuredImage {
+            featureImage {
               childImageSharp {
                 fluid(maxWidth: 800) {
                   ...GatsbyImageSharpFluid

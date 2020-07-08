@@ -1,30 +1,53 @@
 import React from "react"
 import { Link } from "gatsby"
-import Img from "gatsby-image"
 import styled from "styled-components"
+import Img from "gatsby-image"
 
-import Colors from "../variables/colors"
+
+const Item = styled.span`
+    position: absolute;
+    top: 0%;
+    left: 0;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    padding: 40px;
+    text-align: center;
+    font-size: 1.4em;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-decoration: none;
+    line-height: 1.4em;
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 1);;
+    opacity: 1;
+    transition: opacity 0.5s linear;
+`
 
 const Demo = styled.li`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 30vh;
-  margin: 10px;
-  list-style: none;
-  background-color: ${Colors.blue};
-  color: white;
-  text-shadow: 0px 0px 6px rgba(0, 0, 0, 1);
+    position: relative;
+    margin: 1px;
+    list-style: none;
+    overflow: hidden;
+    & .gatsby-image-wrapper {
+        display: block;
+        width: 100%;
+    }
+ 
+    & a:hover span {
+        opacity: 0;
+    }
 `
 
 const PostLink = ({ post }) => {
-    console.log(post);
-   // let featuredImgFluid = post.frontmatter.featuredImage.childImageSharp.fluid
-    return(
+    console.log(post.frontmatter.featureImage)
+    return (
     <Demo>
-        
         <Link to={post.frontmatter.slug}>
-            {post.frontmatter.title} ({post.frontmatter.date})
+            <Img fluid={post.frontmatter.featureImage.childImageSharp.fluid} />
+            <Item>{post.frontmatter.title}</Item>
         </Link>
     </Demo>
     )
