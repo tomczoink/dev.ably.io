@@ -9,13 +9,17 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
-import Sizes from "../variables/sizes"
+import Colors from "../variables/colors"
 
 import Header from "./header"
 import "./layout.css"
 
 const Main = styled.main`
 
+`
+
+const Footer = styled.footer`
+  background-color: ${Colors.charcoal}
 `
 
 const Layout = ({ children }) => {
@@ -33,11 +37,10 @@ const Layout = ({ children }) => {
     <>
       <Header siteTitle={data.site.siteMetadata.title} />
       <Main>{children}</Main>
-      <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
-      </footer>
+      <Footer>
+        © {new Date().getFullYear()}
+        <a href="#">Twitter</a>
+      </Footer>
     </>
   )
 }

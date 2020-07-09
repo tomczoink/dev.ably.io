@@ -3,9 +3,11 @@ import { Link } from "gatsby"
 import styled from "styled-components"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Img from "gatsby-image"
 
 import Sizes from "../variables/sizes"
 import Colors from "../variables/colors"
+import GatsbyImage from "gatsby-image"
 
 const Title = styled.h1`
   padding: 20px;
@@ -15,29 +17,61 @@ const Title = styled.h1`
 `
 
 const Sponsor = styled.section`
+  position: relative;
   max-width: ${Sizes.desktop};
   margin: 30px auto;
   padding: 0 20px;
+  @media (min-width: ${Sizes.mobile}) {
+    padding-right: 320px;
+  }
 `
 
 const Text = styled.p`
-    font-size: 1em;
+  font-size: 1.2em;
+  line-height: 1.4em;
 `
 
-const Guidelines = styled.section`
+const StyledImg = styled(GatsbyImage)`
+  position: absolute!important;
+  top: 100px;
+  right: 0;
+  width: 300px;
+`
 
+const Heading = styled.h2`
+  margin-top: 2em;
+  font-size: 2em;
+  font-weight: normal;
 `
 
 const Button = styled.a`
-
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: max-content;
+  padding: 20px 30px;
+  border-radius: 5px;
+  font-size: 1.4em;
+  text-decoration: none;
+  color: white;
+  background-color: ${Colors.orange};
+  &:hover {
+    background-color: ${Colors.orange_dk};
+  }
 `
 
-const IndexPage = () => (
+const Guidelines = styled.li`
+  line-height: 1.2em;
+  margin-bottom: 1em;
+`
+
+const IndexPage = ({data}) => (
   <Layout>
     <SEO title="Event Sponsorship" />
     <Title>Event Sponsorship</Title>
-    <Button href="https://go.ably.io/event-sponsorship-request">Apply for Event Sponsorship</Button>
     <Sponsor>
+      <Button href="https://go.ably.io/event-sponsorship-request">Apply for Sponsorship</Button>
         <Text>Ably is a developer-focused platform that provides APIs and
         management tools for adding realtime features to applications and
         APIs
@@ -56,47 +90,56 @@ const IndexPage = () => (
         launching this new developer event sponsorship program to help
         encourage healthier food options for your event attendees.
         </Text>
-        <Guidelines>
-        <h3>Ably's sponsorship guidelines</h3>
+        <StyledImg fixed={data.file.childImageSharp.fixed} />
+        <Heading>Ably's sponsorship guidelines</Heading>
         <ul>
-          <li>
+          <Guidelines>
             Our sponsorship program is intended for tech meetups or small-scale
             conferences promoting APIs, event-driven technologies on the web and
             mobile, all things IoT, SaaS engineering, or generally anything to
             do with creating digital realtime applications or experiences.
-          </li>
-          <li>Your event must have a proper Code of Conduct.</li>
-          <li>
+          </Guidelines>
+          <Guidelines>Your event must have a proper Code of Conduct.</Guidelines>
+          <Guidelines>
             Ably's logo should be displayed on all promotional material for your
             event including social media posts, email updates and ticketing
             platforms.
-          </li>
-          <li>
+          </Guidelines>
+          <Guidelines>
             Ably's social handles must be mentioned in your promotional posts.
-          </li>
-          <li>
+          </Guidelines>
+          <Guidelines>
             Ably's logo should be displayed and verbally mentioned at the time
             of welcome address as well as the ending note.
-          </li>
-          <li>
+          </Guidelines>
+          <Guidelines>
             Alcoholic beverages aren’t included as that would go against our
             push for better developer health.
-          </li>
-          <li>
+          </Guidelines>
+          <Guidelines>
             It can take us a couple of weeks to get back to you once you submit
             the form so please be patient :)
-          </li>
-          <li>
+          </Guidelines>
+          <Guidelines>
             If you urgently need to talk to someone from our DevRel team, please
             drop an email to devrel@ably.io. Please do not use this to escalate
             sponsorship requests unless necessary.
-          </li>
+          </Guidelines>
         </ul>
-        </Guidelines>
     </Sponsor>
   </Layout>
 )
 
-
-
 export default IndexPage
+
+export const query = graphql`
+  query {
+    file(relativePath: { eq: "sponsorship5.jpg" }) {
+      childImageSharp {
+        fixed(width: 300, height: 800) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+  }
+`
