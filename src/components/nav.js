@@ -12,6 +12,8 @@ const Container = styled.nav`
     position: absolute;
     top: 0;
     right: 0;
+    width: 100%;
+    background-color: ${Colors.orange};
     transform: translateY(-100%);
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     & a {
@@ -50,7 +52,9 @@ const Container = styled.nav`
     @media (min-width: ${Sizes.mobile}) {
         flex-direction: row;
         position: relative;
-        transform: translateY(0);
+        transform: translateY(0)!important;
+        width: auto;
+        background-color: transparent;
     }
 `
 

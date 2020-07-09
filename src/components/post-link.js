@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 import styled from "styled-components"
 import Img from "gatsby-image"
 
+import Sizes from "../variables/sizes"
 
 const Item = styled.span`
     position: absolute;
@@ -14,7 +15,7 @@ const Item = styled.span`
     width: 100%;
     padding: 40px;
     text-align: center;
-    font-size: 1.4em;
+    font-size: 3vw;
     font-weight: bold;
     letter-spacing: 1px;
     text-decoration: none;
@@ -24,6 +25,12 @@ const Item = styled.span`
     text-shadow: 0px 0px 5px rgba(0, 0, 0, 1);;
     opacity: 1;
     transition: opacity 0.5s linear;
+    @media (min-width: ${Sizes.mobile}) {
+        font-size: 2vw;
+    }
+    @media (min-width: ${Sizes.desktop}) {
+        font-size: 1.4em;
+    }
 `
 
 const Demo = styled.li`

@@ -17,8 +17,11 @@ const Title = styled.h1`
 `
 const Demos = styled.ul`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   margin: -22px auto 0;
+  @media (min-width: ${Sizes.mobile}) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 `
 
 

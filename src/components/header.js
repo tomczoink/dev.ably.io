@@ -37,6 +37,9 @@ const Link = styled.a`
 const ExpanderCheck = styled.input`
   position: absolute;
   opacity: 0;
+  &:checked + label + nav {
+    transform: translateY(60px);
+  }
 `
 
 const Expander = styled.label`
@@ -67,6 +70,7 @@ const Expander = styled.label`
     height: 15px;
     border-bottom: 3px solid  ${Colors.orange};
   }
+
   @media (min-width: ${Sizes.mobile}) {
     display: none;
   }
@@ -80,8 +84,8 @@ const Header = ({ siteTitle }) => (
           {siteTitle}
         </Link>
       </Logo>
-      <ExpanderCheck type="checkbox"></ExpanderCheck>
-      <Expander>show/hide</Expander>
+      <ExpanderCheck type="checkbox" id="nav" name="nav"></ExpanderCheck>
+      <Expander htmlFor="nav">show/hide</Expander>
       <Nav />
   </Container>
 )

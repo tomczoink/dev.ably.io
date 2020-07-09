@@ -14,7 +14,7 @@ const Title = styled.h1`
   color: white;
 `
 
-const About = styled.section`
+const Sponsor = styled.section`
   max-width: ${Sizes.desktop};
   margin: 30px auto;
   padding: 0 20px;
@@ -37,7 +37,7 @@ const IndexPage = () => (
     <SEO title="Event Sponsorship" />
     <Title>Event Sponsorship</Title>
     <Button href="https://go.ably.io/event-sponsorship-request">Apply for Event Sponsorship</Button>
-    <About>
+    <Sponsor>
         <Text>Ably is a developer-focused platform that provides APIs and
         management tools for adding realtime features to applications and
         APIs
@@ -93,7 +93,7 @@ const IndexPage = () => (
           </li>
         </ul>
         </Guidelines>
-    </About>
+    </Sponsor>
   </Layout>
 )
 
