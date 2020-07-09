@@ -3,7 +3,6 @@ import { Link } from "gatsby"
 import styled from "styled-components"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Img from "gatsby-image"
 
 import Sizes from "../variables/sizes"
 import Colors from "../variables/colors"
@@ -21,21 +20,24 @@ const Sponsor = styled.section`
   max-width: ${Sizes.desktop};
   margin: 30px auto;
   padding: 0 20px;
-  @media (min-width: ${Sizes.mobile}) {
-    padding-right: 320px;
-  }
 `
 
 const Text = styled.p`
-  font-size: 1.2em;
   line-height: 1.4em;
+  @media (min-width: ${Sizes.mobile}) {
+    font-size: 1.2em;
+  }
 `
 
 const StyledImg = styled(GatsbyImage)`
-  position: absolute!important;
-  top: 100px;
-  right: 0;
-  width: 300px;
+  float: right;
+  width: 180px!important;
+  height: 480px!important;
+  @media (min-width: ${Sizes.mobile}) {
+    margin: 100px 0 40px 20px;
+    width: 300px!important;
+    height: 800px!important;
+  }
 `
 
 const Heading = styled.h2`
@@ -46,10 +48,8 @@ const Heading = styled.h2`
 
 const Button = styled.a`
   display: block;
-  position: absolute;
-  top: 0;
-  right: 0;
   width: max-content;
+  margin: 0 auto 1em;
   padding: 20px 30px;
   border-radius: 5px;
   font-size: 1.4em;
@@ -58,6 +58,12 @@ const Button = styled.a`
   background-color: ${Colors.orange};
   &:hover {
     background-color: ${Colors.orange_dk};
+  }
+  @media (min-width: ${Sizes.mobile}) {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    marign: 0;
   }
 `
 
@@ -72,6 +78,7 @@ const IndexPage = ({data}) => (
     <Title>Event Sponsorship</Title>
     <Sponsor>
       <Button href="https://go.ably.io/event-sponsorship-request">Apply for Sponsorship</Button>
+      <StyledImg fixed={data.file.childImageSharp.fixed} />
         <Text>Ably is a developer-focused platform that provides APIs and
         management tools for adding realtime features to applications and
         APIs
@@ -90,7 +97,7 @@ const IndexPage = ({data}) => (
         launching this new developer event sponsorship program to help
         encourage healthier food options for your event attendees.
         </Text>
-        <StyledImg fixed={data.file.childImageSharp.fixed} />
+     
         <Heading>Ably's sponsorship guidelines</Heading>
         <ul>
           <Guidelines>

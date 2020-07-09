@@ -16,6 +16,7 @@ const Container = styled.nav`
     background-color: ${Colors.orange};
     transform: translateY(-100%);
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 1;
     & a {
         position: relative;
         margin: 0 ${Sizes.padding};
