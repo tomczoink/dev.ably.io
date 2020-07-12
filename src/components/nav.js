@@ -63,7 +63,7 @@ const Nav = () => (
   <Container>
     <Link to="/">About Us</Link>  
     <Link to="/demos/">Demos & Resources</Link>  
-    <Link to="/demos/">Get Started</Link>  
+    <Link to="/getting-started/chapter1">Get Started</Link>  
     <Link to="/event-sponsorship/">Event Sponsorship</Link>  
   </Container>
 )

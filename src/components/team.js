@@ -1,9 +1,7 @@
 import React from "react"
 import styled from "styled-components"
-import { Link } from "gatsby"
 
 import Colors from "../variables/colors"
-import Sizes from "../variables/sizes"
 
 const Employees = styled.ul`
     display: grid;

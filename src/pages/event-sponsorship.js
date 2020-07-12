@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
 import styled from "styled-components"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -106,7 +105,7 @@ const IndexPage = ({data}) => (
             mobile, all things IoT, SaaS engineering, or generally anything to
             do with creating digital realtime applications or experiences.
           </Guidelines>
-          <Guidelines>Your event must have a proper Code of Conduct.</Guidelines>
+          <Guidelines>Your event must have an enforced Code of Conduct. <a href="https://indieweb.org/code-of-conduct-examples">Code of Conduct examples</a> </Guidelines>
           <Guidelines>
             Ably's logo should be displayed on all promotional material for your
             event including social media posts, email updates and ticketing
