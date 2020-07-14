@@ -23,7 +23,6 @@ const Demos = styled.ul`
   }
 `
 
-
 const DemosPage = ({
   data: {
     allMarkdownRemark: { edges },
