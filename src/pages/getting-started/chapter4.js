@@ -17,11 +17,15 @@ const Title = styled.h1`
 
 const Guide = styled.section`
     display: flex;
+    flex-direction: column;
+    @media (min-width: ${Sizes.mobile}) {
+      flex-direction: row;
+    }
 `
 
 const Menu = styled.aside`
     margin-top: -23px;
-    padding: 40px;
+    padding: 30px;
     background-color: ${Colors.container_lt};
     & a {
       font-size: 1em;
@@ -31,12 +35,17 @@ const Menu = styled.aside`
         color: ${Colors.orange_dk};
       }
     }
+    @media (min-width: ${Sizes.mobile}) {
+      padding: 40px;
+    }
 `
 
 const Container = styled.section`
     max-width: ${Sizes.mobile};
-    margin-left: 8vw;
     padding: 0 30px 50px;
+    @media (min-width: ${Sizes.mobile}) {
+      margin-left: 8vw;
+    }
 `
 
 const Heading = styled.h2`

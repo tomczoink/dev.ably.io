@@ -17,11 +17,15 @@ const Title = styled.h1`
 
 const Guide = styled.section`
     display: flex;
+    flex-direction: column;
+    @media (min-width: ${Sizes.mobile}) {
+      flex-direction: row;
+    }
 `
 
 const Menu = styled.aside`
     margin-top: -23px;
-    padding: 40px;
+    padding: 30px;
     background-color: ${Colors.container_lt};
     & a {
       font-size: 1em;
@@ -31,12 +35,17 @@ const Menu = styled.aside`
         color: ${Colors.orange_dk};
       }
     }
+    @media (min-width: ${Sizes.mobile}) {
+      padding: 40px;
+    }
 `
 
 const Container = styled.section`
     max-width: ${Sizes.mobile};
-    margin-left: 8vw;
     padding: 0 30px 50px;
+    @media (min-width: ${Sizes.mobile}) {
+      margin-left: 8vw;
+    }
 `
 
 const Heading = styled.h2`
@@ -87,6 +96,22 @@ const StyledImg = styled(Img)`
     margin: 3em 1em;
 `
 
+const FrameHolder = styled.div`
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    margin: 1em 0;
+    padding-top: 56.3%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+    & .iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+    }
+`
 
 const IndexPage = ({data}) => {
   const images = {};
@@ -126,9 +151,9 @@ const IndexPage = ({data}) => {
             </ul>
             Here’s a 5-minute video with a detailed explanation on authentication with Ably:
             </Para>
-            <Para>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/FHkzs8z3J5E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="a detailed explanation on authentication with Ably"></iframe>
-            </Para>
+            <FrameHolder>
+                <iframe className="iframe" width="100%" height="100%" src="https://www.youtube.com/embed/FHkzs8z3J5E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="a detailed explanation on authentication with Ably"></iframe>
+            </FrameHolder>
             <Heading3>2. Presence</Heading3>
             <Para><ExternalLink href="https://www.ably.io/documentation/core-features/presence">Presence</ExternalLink> tells you who is connected to your application and what their status or attributes are. You can use presence in two ways:
                 <ul>
