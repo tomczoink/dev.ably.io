@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Ably DevRel Hub`,
-    description: `We love Ably`,
+    title: `Ably Developer Portal`,
+    description: `The home of Ably DevlRel`,
     author: `@ably-realtime`,
   },
   plugins: [
