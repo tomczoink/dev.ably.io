@@ -1,5 +1,7 @@
 import React from "react"
 import styled from "styled-components"
+import Img from "gatsby-image"
+import { useStaticQuery, StaticQuery, graphql } from "gatsby"
 
 import Colors from "../variables/colors"
 
@@ -69,101 +71,119 @@ const Stat = styled.li`
     list-style: none;
 `
 
-const Key = styled.span`
+const Key = styled.span``
 
-`
+const Value = styled.span``
 
-const Value = styled.span`
+export default function Team() {
 
-`
+    const data = useStaticQuery(graphql`{
+        allFile(filter: {relativeDirectory: {eq: "team"}, childImageSharp: {fluid: {}}}) {
+        edges {
+            node {
+            base
+            childImageSharp {
+                fluid {
+                    originalName
+                    sizes
+                    src
+                    srcSet
+                    aspectRatio
+                }
+            }
+            }
+        }
+        }
+    }`);
 
-const Team = () => (
-  <Employees>
-    <Employee>
-        <Name>Ben Gamble</Name>
-        <img src="https://ca.slack-edge.com/T030APSGH-U0108V17KRS-e0261cdc9d5c-512" alt="Ben"/>
-        <Role>Head of Developer advocacy</Role>
-        <Stats>
-            <Stat>
-                <Key>Gaming</Key>
-                <Value>100</Value>
-            </Stat>
-            <Stat>
-                <Key>Talking Speed</Key>
-                <Value>80</Value>
-            </Stat>
-            <Stat>
-                <Key>Computers</Key>
-                <Value>over 9000</Value>
-            </Stat>
-        </Stats>
-    </Employee>
-    <Employee>
-        <Name>Srushtika Neelakantam</Name>
-        <img src="https://ca.slack-edge.com/T030APSGH-U8NULM9RB-64af470e1af5-512" alt="Srushtika"/>
-        <Role>Developer Advocate</Role>
-        <Stats>
-            <Stat>
-                <Key>WebVR</Key>
-                <Value>100</Value>
-            </Stat>
-            <Stat>
-                <Key>WebSockets</Key>
-                <Value>100</Value>
-            </Stat>
-            <Stat>
-                <Key>IoT</Key>
-                <Value>100</Value>
-            </Stat>
-            <Stat>
-                <Key>Public Speaking</Key>
-                <Value>100</Value>
-            </Stat>
-            <Stat>
-                <Key>Cats</Key>
-                <Value>-10</Value>
-            </Stat>
-        </Stats>
-    </Employee>
-    <Employee>
-        <Name>Tom Camp</Name>
-        <img src="https://ca.slack-edge.com/T030APSGH-U8QDG814P-7072d8173243-512" alt="Tom"/>
-        <Role>Developer advocate & realtime engineer</Role>
-        <Stats>
-            <Stat>
-                <Key>Ably Hub</Key>
-                <Value>100</Value>
-            </Stat>
-            <Stat>
-                <Key>Niceness</Key>
-                <Value>100</Value>
-            </Stat>
-            <Stat>
-                <Key>Mobile Dev</Key>
-                <Value>100</Value>
-            </Stat>
-        </Stats>
-    </Employee>
-    <Employee>
-        <Name>Jo Franchetti</Name>
-        <img src="https://ca.slack-edge.com/T030APSGH-USENK4WD7-c85d3e4de612-512" alt="Jo"/>
-        <Role>Developer Advocate</Role>
-        <Stats>
-            <Stat>
-                <Key>CSS</Key>
-                <Value>80</Value>
-            </Stat>
-            <Stat>
-                <Key>Glitter</Key>
-                <Value>100</Value>
-            </Stat>
-            <Stat>
-                <Key>Rainbows</Key>
-                <Value>100</Value>
-            </Stat>
-        </Stats>
-    </Employee>
-  </Employees>
-)
+    const images = {};
+    data.allFile.edges.forEach(edge => { images[edge.node.childImageSharp.fluid.originalName] = edge.node.childImageSharp.fluid; });
 
-export default Team
+    return (
+        <Employees>
+            <Employee>
+                <Name>Ben Gamble</Name>
+                <Img  fluid={ images["ben.jpg" ] } alt="Ben Gamble" />
+                <Role>Head of Developer advocacy</Role>
+                <Stats>
+                    <Stat>
+                        <Key>Gaming</Key>
+                        <Value>100</Value>
+                    </Stat>
+                    <Stat>
+                        <Key>Talking Speed</Key>
+                        <Value>80</Value>
+                    </Stat>
+                    <Stat>
+                        <Key>Computers</Key>
+                        <Value>over 9000</Value>
+                    </Stat>
+                </Stats>
+            </Employee>
+            <Employee>
+                <Name>Srushtika Neelakantam</Name>
+                <Img fluid={ images["srushtika.jpg" ] } alt="Srushtika Neelakantam" />
+                <Role>Developer Advocate</Role>
+                <Stats>
+                    <Stat>
+                        <Key>WebVR</Key>
+                        <Value>100</Value>
+                    </Stat>
+                    <Stat>
+                        <Key>WebSockets</Key>
+                        <Value>100</Value>
+                    </Stat>
+                    <Stat>
+                        <Key>IoT</Key>
+                        <Value>100</Value>
+                    </Stat>
+                    <Stat>
+                        <Key>Public Speaking</Key>
+                        <Value>100</Value>
+                    </Stat>
+                    <Stat>
+                        <Key>Cats</Key>
+                        <Value>-10</Value>
+                    </Stat>
+                </Stats>
+            </Employee>
+            <Employee>
+                <Name>Tom Camp</Name>
+                <Img fluid={ images["tom.jpg" ] } alt="Tom Camp" />
+                <Role>Developer advocate & realtime engineer</Role>
+                <Stats>
+                    <Stat>
+                        <Key>Ably Hub</Key>
+                        <Value>100</Value>
+                    </Stat>
+                    <Stat>
+                        <Key>Niceness</Key>
+                        <Value>100</Value>
+                    </Stat>
+                    <Stat>
+                        <Key>Mobile Dev</Key>
+                        <Value>100</Value>
+                    </Stat>
+                </Stats>
+            </Employee>
+            <Employee>
+                <Name>Jo Franchetti</Name>
+                <Img fluid={ images["jo.jpg" ] } alt="Jo Franchetti" />
+                <Role>Developer Advocate</Role>
+                <Stats>
+                    <Stat>
+                        <Key>CSS</Key>
+                        <Value>80</Value>
+                    </Stat>
+                    <Stat>
+                        <Key>Glitter</Key>
+                        <Value>100</Value>
+                    </Stat>
+                    <Stat>
+                        <Key>Rainbows</Key>
+                        <Value>100</Value>
+                    </Stat>
+                </Stats>
+            </Employee>
+    </Employees>);
+}

@@ -11,6 +11,7 @@ const Item = styled.span`
     left: 0;
     display: flex;
     align-items: center;
+    justify-content: center;
     height: 100%;
     width: 100%;
     padding: 40px;

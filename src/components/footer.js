@@ -20,9 +20,9 @@ const Social = styled.a`
     margin: 0 20px;
 `
 
-const Footer = () => (
-    <Container>
-    © {new Date().getFullYear()}
+export default function Footer() {
+  return (
+  <Container>
     <Social href="https://github.com/ably">
         <Github />
     </Social>
@@ -36,6 +36,5 @@ const Footer = () => (
         <Insta />
     </Social>
   </Container>
-)
-
-export default Footer
+  );
+}
