@@ -23,16 +23,16 @@ const Social = styled.a`
 const Footer = () => (
     <Container>
     © {new Date().getFullYear()}
-    <Social href="#">
+    <Social href="https://github.com/ably">
         <Github />
     </Social>
-    <Social href="#">
+    <Social href="https://twitter.com/ablyrealtime">
         <Twitter />
     </Social>
-    <Social href="#">
+    <Social href="https://glitch.com/@ably-realtime">
         <Glitch />
     </Social>
-    <Social href="#">
+    <Social href="https://www.instagram.com/lifeatably/">
         <Insta />
     </Social>
   </Container>

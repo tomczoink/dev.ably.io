@@ -26,7 +26,7 @@ const Container = styled.nav`
         color: ${Colors.charcoal};
         transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
-        &:hover {
+        &:hover, &.active {
             color: ${Colors.orange_dk};
         }
     
@@ -45,7 +45,7 @@ const Container = styled.nav`
             transform: scaleX(0);
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-        &:hover:after {
+        &:hover:after, &.active:after {
             visibility: visible;
             transform: scaleX(1);
         }
@@ -61,10 +61,10 @@ const Container = styled.nav`
 
 const Nav = () => (
   <Container>
-    <Link to="/">About Us</Link>  
-    <Link to="/demos/">Demos & Resources</Link>  
-    <Link to="/getting-started/chapter1">Get Started</Link>  
-    <Link to="/event-sponsorship/">Event Sponsorship</Link>  
+    <Link to="/" activeClassName="active">About Us</Link>  
+    <Link to="/demos/" activeClassName="active">Demos & Resources</Link>  
+    <Link to="/getting-started/chapter1" activeClassName="active">Get Started</Link>  
+    <Link to="/event-sponsorship/" activeClassName="active">Event Sponsorship</Link>  
   </Container>
 )
 
