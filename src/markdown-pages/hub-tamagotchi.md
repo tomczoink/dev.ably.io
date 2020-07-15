@@ -23,7 +23,7 @@ This demo uses the [Ably Hub TFL data stream](https://www.ably.io/hub/ably-tfl/t
 
 * Clean the platform to clear away litter
 * Vent cold air through the station to keep everyone cool (but don't get carried away!)
-* Passengers departing through the exit will cool the platforms down a little
+* Passengers departing through the exit will cool the platforms down a little
 * Departing trains also cool the platform slightly
 * You can charm mice with songs! They'll find their way off the platform if musically enticed
 * Music will also wake up fainted passengers

@@ -20,7 +20,7 @@ const Title = styled.h1`
 `
 const FeatureImg = styled(Img)`
   min-width: 50%;
-  margin: 0 1em 2em 0;
+  margin: 0 2em 2em 0;
 `
 const Content = styled.section`
   margin: 3em auto;
@@ -59,7 +59,6 @@ export default function Template({data}) {
   const { markdownRemark } = data;
   const { frontmatter, html } = markdownRemark;
   let featuredImgFluid = data.markdownRemark.frontmatter.featureImage.childImageSharp.fluid;
-  
   return (
     <Layout>
       <TitleBar>
@@ -69,9 +68,9 @@ export default function Template({data}) {
         <Details>
           <FeatureImg fluid={featuredImgFluid} />
           <Links>
-            <p>Try the demo: <ExternalLink href={frontmatter.repo}>{frontmatter.demo}</ExternalLink></p>
-            <p>See the code: <ExternalLink href={frontmatter.repo}>{frontmatter.repo}</ExternalLink></p>
-            <p>Build your own: <ExternalLink href={frontmatter.tutorial}>{frontmatter.tutorial}</ExternalLink></p>
+            {frontmatter.demo ? <p>Try the demo: <ExternalLink href={frontmatter.repo}>{frontmatter.demo}</ExternalLink></p> : ""}
+            {frontmatter.repo ? <p>See the code: <ExternalLink href={frontmatter.repo}>{frontmatter.repo}</ExternalLink></p>: ""}
+            {frontmatter.tutorial ? <p>Build your own: <ExternalLink href={frontmatter.tutorial}>{frontmatter.tutorial}</ExternalLink></p> : ""}
           </Links>
         </Details>
           <div
@@ -94,6 +93,7 @@ export const pageQuery = graphql`
         title
         repo
         demo
+        tutorial
         featureImage {
           childImageSharp {
             fluid(maxWidth: 800) {
